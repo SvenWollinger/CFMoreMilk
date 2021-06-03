@@ -16,6 +16,8 @@ Installation
 
 Download/Build the jar and put it into your plugins folder.
 
+If you want to only enable player milking use [this](https://github.com/SvenWollinger/CFMoreMilk/blob/main/config_templates/player_only.yml) config file.
+
 License
 ----
 
