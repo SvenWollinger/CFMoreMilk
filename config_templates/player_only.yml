@@ -1,0 +1,75 @@
+enable_all: false
+#If enable_all is false this is ignored
+#This means that if enable_all is false you can milk minecarts. Be warned.
+enabled_entities:
+  player: true
+  bat: false
+  cat: false
+  chicken: false
+  cod: false
+  cow: false
+  donkey: false
+  fox: false
+  horse: false
+  mooshroom: false
+  mule: false
+  ocelot: false
+  parrot: false
+  pig: false
+  piglin: false
+  piglin_baby: false
+  polar_bear: false
+  polar_bear_baby: false
+  pufferfish: false
+  rabbit: false
+  salmon: false
+  sheep: false
+  skeleton_horse: false
+  snow_golem: false
+  squid: false
+  strider: false
+  tropical_fish: false
+  turtle: false
+  villager: false
+  wandering_trader: false
+  bee: false
+  cave_spider: false
+  dolphin: false
+  enderman: false
+  iron_golem: false
+  llama: false
+  panda: false
+  spider: false
+  wolf: false
+  zombified_piglin: false
+  #hostile
+  blaze: false
+  chicken_jockey: false
+  creeper: false
+  drowned: false
+  elder_guardian: false
+  endermite: false
+  evoker: false
+  ghast: false
+  guardian: false
+  hoglin: false
+  husk: false
+  magma_cube: false
+  phantom: false
+  piglin_brute: false
+  pillager: false
+  ravager: false
+  shulker: false
+  silverfish: false
+  skeleton: false
+  slime: false
+  stray: false
+  vex: false
+  vindicator: false
+  witch: false
+  wither_skeleton: false
+  zoglin: false
+  zombie: false
+  zombie_villager: false
+
+item_name: "%name%'s milk"
