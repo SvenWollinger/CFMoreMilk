@@ -7,11 +7,11 @@ enabled_entities:
   cat: false
   chicken: false
   cod: false
-  cow: false
+  cow: true
   donkey: false
   fox: false
   horse: false
-  mooshroom: false
+  mooshroom: true
   mule: false
   ocelot: false
   parrot: false
