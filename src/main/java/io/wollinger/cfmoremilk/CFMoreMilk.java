@@ -59,9 +59,9 @@ public class CFMoreMilk extends JavaPlugin implements Listener {
             if(getConfig().getBoolean("enable_all")) {
                 giveDefaultMilk(event.getPlayer(), event.getRightClicked(), event.getHand());
             } else {
-                switch (event.getRightClicked().getType()) {
-                    default: break;
-                }
+                String name = event.getRightClicked().getType().toString().toLowerCase();
+                if(isEntityEnabled(name))
+                    giveDefaultMilk(event.getPlayer(), event.getRightClicked(), event.getHand());
             }
         }
     }
