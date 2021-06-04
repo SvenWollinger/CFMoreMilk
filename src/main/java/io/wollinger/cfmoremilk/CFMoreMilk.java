@@ -100,10 +100,12 @@ public class CFMoreMilk extends JavaPlugin implements Listener {
                             player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 1000, 10));
                             break;
                         case "enderman":
+                            //TODO: add particles & remember rotation
                             event.setCancelled(true);
                             player.teleport(player.getTargetBlock(null, 64).getLocation(), PlayerTeleportEvent.TeleportCause.ENDER_PEARL);
                             break;
                         case "chicken":
+                            //TODO: Give buff that allows you to drop the egg whenever you crouch. Up to 5 eggs in one player.
                             event.setCancelled(true);
                             player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1f, 1f);
                             player.getWorld().dropItem(player.getLocation(), new ItemStack(Material.EGG));
