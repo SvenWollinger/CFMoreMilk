@@ -1,22 +1,30 @@
 package io.wollinger.cfmoremilk;
 
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
 
 public class CFMoreMilk extends JavaPlugin implements Listener {
 
+    private CFMoreMilk instance;
+    public static String KEY = "CFMilkOrigin";
+
     @Override
     public void onEnable() {
+        instance = this;
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(this, this);
         LogManager.log("CFMoreMilk started! Have fun!", Level.INFO);
@@ -43,6 +51,8 @@ public class CFMoreMilk extends JavaPlugin implements Listener {
         ItemStack milk = new ItemStack(Material.MILK_BUCKET);
         ItemMeta milkMeta = milk.getItemMeta();
         milkMeta.setDisplayName("\u00A7f" + getConfig().getString("item_name").replaceAll("%name%", entityName));
+        NamespacedKey key = new NamespacedKey(instance, CFMoreMilk.KEY);
+        milkMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING, entity.getType().toString().toLowerCase());
         milk.setItemMeta(milkMeta);
 
         player.getInventory().setItem(equipmentSlot, milk);
@@ -65,5 +75,20 @@ public class CFMoreMilk extends JavaPlugin implements Listener {
             }
         }
     }
+
+    @EventHandler
+    public void onMilkDrink(PlayerItemConsumeEvent event) {
+        if(event.getItem().getType() == Material.MILK_BUCKET) {
+            PersistentDataContainer dataContainer = event.getItem().getItemMeta().getPersistentDataContainer();
+            NamespacedKey key = new NamespacedKey(instance, CFMoreMilk.KEY);
+            if(dataContainer.has(key, PersistentDataType.STRING)) {
+                String mob = dataContainer.get(key, PersistentDataType.STRING);
+                dataContainer.remove(key);
+
+                
+            }
+        }
+    }
+
 
 }
